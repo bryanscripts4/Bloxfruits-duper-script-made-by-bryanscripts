@@ -1,0 +1,99 @@
+--// Bryans shit dupe script
+--// pur made by bryan scripts
+--// YT: bryanscripts
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Bryans shit dupe script",
+   LoadingTitle = "Injected by Bryan Scripts",
+   LoadingSubtitle = "pur made by bryan scripts",
+   ConfigurationSaving = { Enabled = false }
+})
+
+local Player = game.Players.LocalPlayer
+
+local function SystemMsg(msg)
+    game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage", {
+        Text = "[System]: " .. msg,
+        Color = Color3.fromRGB(255, 60, 60),
+        Font = Enum.Font.SourceSansBold,
+        FontSize = Enum.FontSize.Size24
+    })
+end
+
+local Tab = Window:CreateTab("Dupe Module", 4483345998)
+
+Tab:CreateLabel("YT: BRYANSCRIPTS")
+Tab:CreateLabel("pur made by bryan scripts")
+
+Tab:CreateButton({
+   Name = "❤️ SUBSCRIBE TO BRYAN SCRIPTS",
+   Callback = function()
+       -- Attempt to open directly (Supported by some executors)
+       pcall(function()
+           if syn and syn.request then
+               syn.request({Url = "https://youtube.com/@bryanscripts?si=EoLYBaocpxX6WInE", Method = "GET"})
+           elseif setclipboard then
+               setclipboard("https://youtube.com/@bryanscripts?si=EoLYBaocpxX6WInE")
+           end
+       end)
+       
+       -- Show the notification so they know it's copied if the browser doesn't open
+       Rayfield:Notify({
+           Title = "SUBSCRIBE NOW",
+           Content = "Link copied! Paste it in your browser to support Bryan Scripts!",
+           Duration = 6,
+       })
+       
+       -- Big Dialog for the video
+       Rayfield:CreateDialog({
+           Title = "Support Bryan Scripts",
+           Content = "The link has been copied to your clipboard. Please open your browser and paste it to subscribe!",
+           Options = {
+               {
+                   Name = "Got it!",
+                   Callback = function() print("User acknowledged YT link") end
+               }
+           }
+       })
+   end,
+})
+
+Tab:CreateSection("Exploit Features")
+
+Tab:CreateButton({
+   Name = "Duplicate Held Item",
+   Callback = function()
+       local tool = Player.Character:FindFirstChildOfClass("Tool")
+       
+       if tool then
+           Rayfield:Notify({
+               Title = "Bypassing...",
+               Content = "Cloning " .. tool.Name .. " packets.",
+               Duration = 1.5,
+           })
+           
+           task.wait(0.8)
+           
+           local ClonedTool = tool:Clone()
+           ClonedTool.Parent = Player.Backpack
+           
+           SystemMsg("Item duplicated: " .. tool.Name)
+           
+           Rayfield:Notify({
+               Title = "Success",
+               Content = tool.Name .. " has been doubled!",
+               Duration = 3,
+           })
+       else
+           Rayfield:Notify({
+               Title = "Error",
+               Content = "Hold the item in your hand first!",
+               Duration = 4,
+           })
+       end
+   end,
+})
+
+SystemMsg("Bryan Scripts Loaded. YT: bryanscripts")

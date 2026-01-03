@@ -25,10 +25,10 @@ end
 local Tab = Window:CreateTab("Dupe Module", 4483345998)
 
 Tab:CreateLabel("YT: BRYANSCRIPTS")
-Tab:CreateLabel("pur made by bryan scripts")
+Tab:CreateLabel("dupur made by bryan scripts")
 
 Tab:CreateButton({
-   Name = "❤️ SUBSCRIBE TO BRYAN SCRIPTS",
+   Name = "SUBSCRIBE TO BRYAN SCRIPTS",
    Callback = function()
        -- Attempt to open directly (Supported by some executors)
        pcall(function()
